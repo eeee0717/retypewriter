@@ -70,6 +70,7 @@
   },
   "dependencies": {
     "@types/diff-match-patch": "^1.0.35",
-    "diff-match-patch": "^1.0.5"
+    "diff-match-patch": "^1.0.5",
+    "typeit": "^8.7.1"
   }
 }
