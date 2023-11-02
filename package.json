@@ -67,5 +67,9 @@
   },
   "lint-staged": {
     "*": "eslint --fix"
+  },
+  "dependencies": {
+    "@types/diff-match-patch": "^1.0.35",
+    "diff-match-patch": "^1.0.5"
   }
 }
