@@ -1,4 +1,4 @@
-import { calculatePatch, diff, createAnimator } from './src'
+import { calculatePatch, createAnimator, diff } from './src'
 
 const typingEl = document.getElementById('typing') as HTMLParagraphElement
 const inputEl = document.getElementById('input') as HTMLTextAreaElement
@@ -30,27 +30,27 @@ inputEl.value = input
 outputEl.value = output
 
 inputEl.addEventListener('input', () => {
-    input = inputEl.value
-    start()
+  input = inputEl.value
+  start()
 })
 
 outputEl.addEventListener('input', () => {
-    output = outputEl.value
-    start()
+  output = outputEl.value
+  start()
 })
 
 function sleep(ms: number) {
-    return new Promise(resolve => setTimeout(resolve, ms))
+  return new Promise(resolve => setTimeout(resolve, ms))
 }
 
 async function start() {
-    let _input = input
-    const patches = calculatePatch(diff(_input, output))
-    const animator = createAnimator(_input, patches)
+  const _input = input
+  const patches = calculatePatch(diff(_input, output))
+  const animator = createAnimator(_input, patches)
 
-    for (const result of animator) {
-        typingEl.textContent = result.output
-        await sleep(100)
-    }
+  for (const result of animator) {
+    typingEl.textContent = result.output
+    await sleep(Math.random() * 100)
+  }
 }
 start()

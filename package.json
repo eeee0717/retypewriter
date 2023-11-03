@@ -36,7 +36,8 @@
   ],
   "scripts": {
     "build": "unbuild",
-    "dev": "unbuild --stub",
+    "dev": "vite",
+    "stub":"unbuild --stub",
     "lint": "eslint .",
     "prepublishOnly": "nr build",
     "release": "bumpp && npm publish",
@@ -44,6 +45,10 @@
     "test": "vitest",
     "typecheck": "tsc --noEmit",
     "prepare": "simple-git-hooks"
+  },
+  "dependencies": {
+    "@types/diff-match-patch": "^1.0.35",
+    "diff-match-patch": "^1.0.5"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^1.0.0-beta.22",
@@ -67,10 +72,5 @@
   },
   "lint-staged": {
     "*": "eslint --fix"
-  },
-  "dependencies": {
-    "@types/diff-match-patch": "^1.0.35",
-    "diff-match-patch": "^1.0.5",
-    "typeit": "^8.7.1"
   }
 }
